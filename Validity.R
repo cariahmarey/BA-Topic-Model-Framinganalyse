@@ -1,17 +1,4 @@
-
-####################
-# Topic ranking
-# re-rank top terms for topic names
-topicNames <- apply(lda::top.topic.words(beta, 5, by.score = T), 2, paste, collapse = " ")
-
-# most probable topics in the collection (score over 0.1:
-# not really a background topic
-topicProportions <- colSums(theta) / nrow(DTM)
-sort(topicProportions, decreasing = T)
-
 # Rank-1
-# topic 1 has second highest rank
-# 133  84 129 155 101 130  91 106  98 101
 countsOfPrimaryTopics <- rep(0, K)
 for (i in i:nrow(DTM)) {
   # select topic distribution for document i
@@ -22,14 +9,8 @@ for (i in i:nrow(DTM)) {
 }
 countsOfPrimaryTopics
 
-# filtering documents
-topicToFilter <- 1
-topicThreshold <- 0.9
-selectedDocumentIndexes <- (theta[, topicToFilter] >= topicThreshold)
-filteredCorpus <- textdata_corpus %>% corpus_subset(subset = selectedDocumentIndexes)
-
-filteredCorpus
-
+# topic diagnostics
+topic_diagnostics <- topic_diagnostics(lda_model, DTM, top_n_tokens = 20)
 
 # LDAvis
 svd_tsne <- function(x) tsne(svd(x)$u)
@@ -43,3 +24,5 @@ json <- createJSON(
   plot.opts = list(xlab="", ylab="")
 )
 serVis(json)
+
+
