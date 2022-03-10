@@ -1,6 +1,6 @@
 # find values for K and α
-# set seed, α and burnin (number of gibbs iterations at beginning)
-controls = list(seed = 100, alpha = 0.02, burnin = 300, iter = 2000)
+# set seed, α and burnin
+controls = list(seed = 100, alpha = 0.02, burnin = 300)
 
 result <- FindTopicsNumber(
   DTM,
