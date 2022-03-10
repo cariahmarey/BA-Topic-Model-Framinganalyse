@@ -46,7 +46,7 @@ cm8_syns_narrow <- do.call(c, list("increase", "efficiency", "intelligence",
 cm_syns_narrow = list(cm1_syns_narrow, cm2_syns_narrow, cm3_syns_narrow, cm4_syns_narrow, cm5_syns_narrow, cm6_syns_narrow, cm7_syns_narrow, cm8_syns_narrow)
 
 
-# calculate number of tokens of synonym list (372 tokens)
+# calculate number of tokens of synonym list
 cm_syns_narrow <- list(cm1_syns_narrow, cm2_syns_narrow, cm3_syns_narrow, cm4_syns_narrow, cm5_syns_narrow, cm6_syns_narrow, cm7_syns_narrow, cm8_syns_narrow)
 cm_syns_narrow_tokens_sum <- sum(ntoken(unlist(cm_syns_narrow)))
 
@@ -60,7 +60,7 @@ cm_syns_tokens <- cm_syns_tokens %>%
   tokens_replace(lemma_data$inflected_form, lemma_data$lemma, valuetype = "fixed") %>%
   tokens_remove(pattern = stopword_data, padding = T)
 
-# remove empty rows of synonyms dataframe and calculate final number of tokens (301 tokens)
+# remove empty rows of synonyms dataframe and calculate final number of tokens
 cm_syns <- data.frame(unlist(cm_syns_tokens))
 cm_syns <- cm_syns[!apply(cm_syns == "", 1, all), ]
 cm_syns_tokens_sum <- sum(ntoken(cm_syns))
