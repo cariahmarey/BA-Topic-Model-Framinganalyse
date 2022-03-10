@@ -17,7 +17,7 @@ library(htmltools)
 library(topicdoc)
 
 # path for dataset
-path_dataset <- paste(<filepath>)
+path_dataset <- paste("<filepath>.csv")
              
 # read csv
 textdata <- read.csv(path_dataset, header= T, sep = ";", encoding = "UTF-8")        
