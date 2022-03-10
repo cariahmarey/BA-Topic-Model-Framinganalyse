@@ -1,4 +1,5 @@
 # create topic models for α = 0.01 and K = 7,8,9
+controls = list(seed = 100, alpha = 0.01, burnin = 300)
 for(i in 7:9) { 
   
   # set number of topics
@@ -13,12 +14,13 @@ for(i in 7:9) {
   topics <- terms(lda_model, 20)
   
   #create xlsx docs
-  path_tm <- paste0("C:/Users/mariu/OneDrive/Dokumente/Studium Leipzig/Wintersemester 21-22/Bachelorarbeit/Topic Model Test in RStudio/Topic Model Test Final BA/tm_k",i,"_a001.xlsx")
+  path_tm <- paste0("<filepath>",i,"<restoffilepath>.xlsx")
   write.xlsx(topics, path_tm, row.names = F)
 }
 
 
-# create topic models for α = 0.02 and K = 10,
+# create topic models for α = 0.02 and K = 8,9,10,11
+controls = list(seed = 100, alpha = 0.02, burnin = 300)
 for(i in 8:11) { 
   
   # set number of topics
@@ -37,6 +39,3 @@ for(i in 8:11) {
   write.xlsx(topics, path_tm, row.names = F)
 }
 
-
-save(topics_df, file = "topterms.Rda")
-topics_df <- data.frame(topics)
