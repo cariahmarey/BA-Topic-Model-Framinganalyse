@@ -35,7 +35,7 @@ for(i in 8:11) {
   topics <- terms(lda_model, 20)
   
   #create xlsx docs
-  path_tm <- paste0("C:/Users/mariu/OneDrive/Dokumente/Studium Leipzig/Wintersemester 21-22/Bachelorarbeit/Topic Model Test in RStudio/Topic Model Test Final BA/tm_k",i,"_a002.xlsx")
+  path_tm <- paste0("<filepath>",i,"<restoffilepath>.xlsx")
   write.xlsx(topics, path_tm, row.names = F)
 }
 
