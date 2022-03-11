@@ -1,3 +1,5 @@
+# source of code: https://tm4ss.github.io/docs/Tutorial_6_Topic_Models.html
+
 # Rank-1
 countsOfPrimaryTopics <- rep(0, K)
 for (i in i:nrow(DTM)) {
@@ -10,9 +12,10 @@ for (i in i:nrow(DTM)) {
 countsOfPrimaryTopics
 
 # topic diagnostics
+# calculate coherence
 topic_diagnostics <- topic_diagnostics(lda_model, DTM, top_n_tokens = 20)
 
-# LDAvis
+# LDAvis 
 svd_tsne <- function(x) tsne(svd(x)$u)
 json <- createJSON(
   phi = tmResult$terms,
