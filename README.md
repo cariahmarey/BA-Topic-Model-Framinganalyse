@@ -1,4 +1,4 @@
-# BA: Framing-Analysis with Topic Modeling
+# BA: Identification of Cultural Motives with Topic Modeling
 ## Order of Execution
 
 1. Preprocessing
