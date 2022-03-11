@@ -16,6 +16,8 @@ library(tsne)
 library(htmltools)
 library(topicdoc)
 
+# code used: https://github.com/tm4ss/tm4ss.github.io
+
 # path for dataset
 path_dataset <- paste("<filepath>.csv")
              
@@ -45,13 +47,16 @@ corpus_tokens_sum <- sum(data.frame(corpus_tokens))
 DTM <- dfm(textdata_corpus)
 corpus_types <- dim(DTM)[2]
 
-# import dictionary of lemmas
+# import dictionary of lemmas (in folder "resources")
+# source: 
 lemma_data <- read.csv(<filepath>, encoding = "UTF-8")
 
 # remove lemmas "data, datum" and "electronic-data, electronic-datum"
+# source: https://github.com/tm4ss/tm4ss.github.io/blob/master/resources/baseform_en.tsv
 lemma_data <- lemma_data[-c(10322,13618), ]
 
 # import stopword list
+# source: https://github.com/tm4ss/tm4ss.github.io/blob/master/resources/stopwords_en.txt
 stopword_data <- readLines(<filepath>, encoding = "UTF-8")
 
 # create tokens object
