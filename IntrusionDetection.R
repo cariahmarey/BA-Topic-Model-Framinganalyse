@@ -1,6 +1,6 @@
 # Intrusion Detection
-# import word intrusion function
-# import topic intrusion function
+# import and run word intrusion function
+# import and run topic intrusion function
 
 # test word intrusion
 tm_word_intrusion(beta = beta_df)
